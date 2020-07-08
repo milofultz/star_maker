@@ -9,5 +9,5 @@ star_maker is a lo-fi screen saver or ambient visual using blessed. I originally
 ---
 - Sideways motion instead of top to bottom
 - Parallax effect: for every multiple of 3, every line n+1 doesn't change at all, every line n+2 moves by 1px, every line n+2 moves by 2px
-- Different colors, particularly for the special characters to be more like planets or suns. I'm thinking like the [Hubble ultra deep field picture](https://www.nasa.gov/audience/forstudents/k-4/stories/nasa-knows/what-is-the-hubble-space-telecope-k4.html)
-- Cooler characters, if I find some
+- ~~Different colors, particularly for the special characters to be more like planets or suns. I'm thinking like the [Hubble ultra deep field picture](https://www.nasa.gov/audience/forstudents/k-4/stories/nasa-knows/what-is-the-hubble-space-telecope-k4.html)~~
+- ~~Cooler characters, if I find some~~
