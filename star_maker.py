@@ -10,6 +10,15 @@ TERM = Terminal()
 ascii_space = ['"', "'", '.', ',', '`', '+']
 ascii_bodies = ['ø', '°', '*', '~']
 
+space_colors = [ TERM.white, TERM.bright_white, TERM.yellow, TERM.bright_black ]
+bodies_colors = [ TERM.red, TERM.green, TERM.yellow, TERM.blue, TERM.magenta,
+	TERM.cyan, TERM.white, TERM.bright_black, TERM.bright_red, 
+	TERM.bright_green, TERM.bright_yellow, TERM.bright_blue, 
+	TERM.bright_magenta, TERM.bright_cyan, TERM.bright_white ]
+bold = TERM.bold
+no_color = TERM.normal
+
+
 def random_nothing():
     string = ' '
     number = random.randint(0,30)
@@ -43,20 +52,41 @@ def make_space(char_lst, spec_char_lst):
 def convert_to_list(stars, width):
     line = width
 
-    star_line = [stars[i:i+line] for i in range(0, len(stars), line)]
+    stars_lst = [stars[i:i+line] for i in range(0, len(stars), line)]
 
-    return star_line
+    return stars_lst
 
-def scroller(stars_lst, stars_str, height=24):
+def make_colorful(stars_lst):
+	color_stars_lst = []
+
+	for line in stars_lst:
+		color_stars_line = ''
+		for char in line:
+			random.shuffle(bodies_colors)
+			bodies_color = bodies_colors[0]
+			random.shuffle(space_colors)
+			space_color = space_colors[0]
+			if char in ascii_bodies:
+				color_stars_line += bodies_color + char + no_color
+			elif random.randint(0,2) == 0:
+				color_stars_line += space_color + char + no_color
+			else:
+				color_stars_line += bold + char + no_color
+		color_stars_lst.append(color_stars_line)
+
+	return color_stars_lst
+
+def scroller(stars_lst, height=24):
     with TERM.hidden_cursor():
-        star_screen = TERM.bold(stars_str)
+        star_screen = ''
+        for line in stars_lst:
+        	star_screen += line
         print(star_screen) #to clear screen
 
         while True:
             random.shuffle(stars_lst)
             for i in range(2*height):
-                star_line = TERM.bold(stars_lst[i])
-                print(star_line)
+                print(stars_lst[i])
                 sleep(.75)
 
 
@@ -66,5 +96,6 @@ if __name__ == '__main__':
 
     stars_str = make_space(ascii_space, ascii_bodies)
     stars_lst = convert_to_list(stars_str, width)
+    color_stars_lst = make_colorful(stars_lst)
 
-    scroller(stars_lst, stars_str, height)
+    scroller(color_stars_lst, height)
