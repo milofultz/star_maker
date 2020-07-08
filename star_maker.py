@@ -7,8 +7,8 @@ from blessed import Terminal
 
 TERM = Terminal()
 
-ascii_space = ['"', "'", '.', ',', '`', '+']
-ascii_bodies = ['ø', '°', '*', '~']
+ascii_space = ['"', "'", '.', ',', '`', '+', ';', '˜', '˚', '¨', 'ˆ', '“', '‘', '¸', '˛']
+ascii_bodies = ['ø', '°', '*', '~', '%', 'c', 'O', '0', '?', '©', '∆', '®', '«', '◊', '', '‰', 'Œ']
 
 space_colors = [ TERM.white, TERM.bright_white, TERM.yellow, TERM.bright_black ]
 bodies_colors = [ TERM.red, TERM.green, TERM.yellow, TERM.blue, TERM.magenta,
@@ -21,7 +21,7 @@ no_color = TERM.normal
 
 def random_nothing():
     string = ' '
-    number = random.randint(0,30)
+    number = random.randint(1,40)
     string = string * number
 
     return string
