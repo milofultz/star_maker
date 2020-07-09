@@ -122,4 +122,4 @@ if __name__ == '__main__':
             print(star_str)
             star_list = star_shifter(star_list)
             star_str = star_concatenator(star_list)
-            sleep(.4)
+            sleep(.25)

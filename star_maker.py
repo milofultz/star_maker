@@ -89,7 +89,7 @@ def scroller(stars_lst, height=24):
             random.shuffle(stars_lst)
             for i in range(2*height):
                 print(stars_lst[i])
-                sleep(.75)
+                sleep(.25)
 
 
 if __name__ == '__main__':
