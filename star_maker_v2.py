@@ -95,11 +95,14 @@ def star_concatenator(star_list):
         star_str += i + '\n'
     return star_str
 
-def star_shifter(star_list):
+def star_shifter(star_list, parallax):
     shifted_star_list = star_list
 
     for num, lst in enumerate(star_list):
-        column = num % 4
+        if parallax == True:
+            column = num % 4
+        else:
+            column = 0
 
         if column == 0:
             shifted_star_list[num] = lst[-1:] + lst[:-1]
@@ -120,6 +123,6 @@ if __name__ == '__main__':
             
         while True:
             print(star_str)
-            star_list = star_shifter(star_list)
+            star_list = star_shifter(star_list, True) #True == Parallax on
             star_str = star_concatenator(star_list)
             sleep(.25)
