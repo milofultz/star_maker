@@ -17,6 +17,8 @@ bodies_colors = [ TERM.red, TERM.green, TERM.yellow, TERM.blue, TERM.magenta,
 	TERM.bright_magenta, TERM.bright_cyan, TERM.bright_white ]
 bold = TERM.bold
 no_color = TERM.normal
+width = TERM.width
+height = TERM.height
 
 
 def random_nothing():
@@ -39,7 +41,7 @@ def pick_star(char_lst, spec_char_lst):
     return star
 
 def make_space(char_lst, spec_char_lst):
-    chars = 10000
+    chars = width*4
     space = ''
 
     for i in range(chars):
@@ -91,8 +93,6 @@ def scroller(stars_lst, height=24):
 
 
 if __name__ == '__main__':
-    width = TERM.width
-    height = TERM.height
 
     stars_str = make_space(ascii_space, ascii_bodies)
     stars_lst = convert_to_list(stars_str, width)
